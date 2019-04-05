@@ -1,0 +1,2 @@
+D:\CloudStor\DevTools\week5\BattleSharp\obj\x86\Debug\BattleSharp.csprojAssemblyReference.cache
+D:\CloudStor\DevTools\week5\BattleSharp\obj\x86\Debug\BattleSharp.csproj.CoreCompileInputs.cache
