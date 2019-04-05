@@ -9,7 +9,8 @@ namespace Battleships
         protected static Random _Random = new Random();
 
         private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
-        private SeaGrid _playerGrid = new SeaGrid(_Ships);
+        // private SeaGrid _playerGrid = new SeaGrid(_Ships);
+        private SeaGrid _playerGrid; // SV: moved init into constructor, as it requires _Ships
         private ISeaGrid _enemyGrid;
         protected BattleShipsGame _game;
 
@@ -48,6 +49,7 @@ namespace Battleships
 
         public Player(BattleShipsGame controller)
         {
+            _playerGrid = new SeaGrid(_Ships); // SV: moved init from top of this class
             _game = controller;
 
             // for each ship add the ships name so the seagrid knows about them
@@ -113,9 +115,10 @@ namespace Battleships
     /// <value>The ship</value>
     /// <returns>The ship with the indicated name</returns>
     /// <remarks>The none ship returns nothing/null</remarks>
-        public Ship Ship
+        public Ship Ship(ShipName name)
         {
-            get
+            //get // unsure why the gets are here.
+            // this one raises a syntax error
             {
                 if (name == ShipName.None)
                     return null;
@@ -185,10 +188,10 @@ namespace Battleships
         }
 
         /// <summary>
-    /// Makes it possible to enumerate over the ships the player
-    /// has.
-    /// </summary>
-    /// <returns>A Ship enumerator</returns>
+        /// Makes it possible to enumerate over the ships the player
+        /// has.
+        /// </summary>
+        /// <returns>A Ship enumerator</returns>
         public IEnumerator GetEnumerator()
         {
             Ship[] result = new Ship[_Ships.Values.Count + 1];
@@ -199,9 +202,15 @@ namespace Battleships
             return lst.GetEnumerator();
         }
 
+        // SV: to meet criteria for 'IEnumerable<Ship>' interface.
+        IEnumerator<Ship> IEnumerable<Ship>.GetEnumerator()
+        {
+            return GetShipEnumerator();
+        }
+
         /// <summary>
-    /// Vitual Attack allows the player to shoot
-    /// </summary>
+        /// Vitual Attack allows the player to shoot
+        /// </summary>
         public virtual AttackResult Attack()
         {
             // human does nothing here...
