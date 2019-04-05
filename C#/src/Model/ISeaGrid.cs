@@ -4,9 +4,9 @@ namespace Battleships
 {
     public interface ISeaGrid
     {
-        int Width { get; private set; }
+        int Width { get; }
 
-        int Height { get; private set; }
+        int Height { get; }
 
         /// <summary>
     /// Indicates that the grid has changed.
@@ -20,7 +20,7 @@ namespace Battleships
     /// <param name="column">the column to access</param>
     /// <value>what the player can see at that location</value>
     /// <returns>what the player can see at that location</returns>
-        TileView Item { get; private set; }
+        TileView Item { get; }
 
         /// <summary>
     /// Mark the indicated tile as shot.

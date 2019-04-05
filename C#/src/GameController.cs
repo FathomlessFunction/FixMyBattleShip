@@ -64,7 +64,7 @@ namespace Battleships
             }
         }
 
-        public static GameController()
+        static GameController()
         {
             // bottom state will be quitting. If player exits main menu then the game is over
             _state.Push(GameState.Quitting);
@@ -416,7 +416,7 @@ namespace Battleships
 
             UtilityFunctions.DrawAnimations();
 
-            SwinGame.RefreshScreen();
+            SwinGame.RefreshScreen(60);
         }
 
         /// <summary>

@@ -1,313 +1,51 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug-Windows</Configuration>
+    <ProjectGuid>{A9DCAC72-BC77-4C33-BE70-BBFD31D7C798}</ProjectGuid>
+    <RootNamespace>MyGame</RootNamespace>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <AssemblyName>MyGame</AssemblyName>
+    <SuppressXamMacUpsell>True</SuppressXamMacUpsell>
+    <SuppressXamMacMigration>True</SuppressXamMacMigration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{F3AD6D7E-EE2A-47C0-98C1-B0CF5BFCF490}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>WindowsApplication</AssemblyName>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Exe</OutputType>
+    <ApplicationIcon>Resources\SwinGame.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Windows|x86' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>false</UseSGen>
+    <UseRefCounting>false</UseRefCounting>
+    <Profiling>false</Profiling>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <RootNamespace>BattleSharp</RootNamespace>
+    <PrepareForRunDependsOn>$(PrepareForRunDependsOn);CopyLibsToOut</PrepareForRunDependsOn>
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".vs\MyGameWin\v14\.suo" />
-    <None Include=".vs\MyGameWin\v15\.suo" />
-    <None Include=".vs\MyGameWin\v15\Server\sqlite3\db.lock" />
-    <None Include=".vs\MyGameWin\v15\Server\sqlite3\storage.ide" />
-    <None Include=".vs\MyGameWin\v15\Server\sqlite3\storage.ide-shm" />
-    <None Include=".vs\MyGameWin\v15\Server\sqlite3\storage.ide-wal" />
-    <None Include="app.config" />
-    <None Include="bin\Debug-Mac\.DS_Store" />
-    <None Include="bin\Debug-Mac\Info.plist" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\Info.plist" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MacOS\MyGameMac" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Info.plist" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\libSGSDK.dylib" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\fonts\arial.ttf" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\fonts\cour.ttf" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\fonts\maven_pro_regular.ttf" />
-    <None Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\SwinGame.icns" />
-    <None Include="bin\Debug-Mac\Resources\fonts\arial.ttf" />
-    <None Include="bin\Debug-Mac\Resources\fonts\cour.ttf" />
-    <None Include="bin\Debug-Mac\Resources\fonts\maven_pro_regular.ttf" />
-    <None Include="bin\Debug-Mac\Resources\SwinGame.icns" />
-    <None Include="bin\Debug-Mac\stderr.log" />
-    <None Include="bin\Debug-Mac\stdout.log" />
-    <None Include="bin\Debug\MyGame.exe.config" />
-    <None Include="bin\Debug\MyGame.vshost.exe.config" />
-    <None Include="bin\Debug\MyGame.vshost.exe.manifest" />
-    <None Include="bin\Debug\Resources\fonts\arial.ttf" />
-    <None Include="bin\Debug\Resources\fonts\cour.ttf" />
-    <None Include="bin\Debug\Resources\fonts\maven_pro_regular.ttf" />
-    <None Include="bin\Debug\Resources\SwinGame.icns" />
-    <None Include="Info.plist" />
-    <None Include="lib\cleanlib.sh" />
-    <None Include="lib\cygpath" />
-    <None Include="lib\mac\libSGSDK.dylib" />
-    <None Include="lib\makelib.sh" />
-    <None Include="lib\MonoMacLauncher" />
-    <None Include="lib\sgsdk_source.zip" />
-    <None Include="lib\win32\libSGSDL2.dll.a" />
-    <None Include="lib\win64\libSGSDL2.dll.a" />
-    <None Include="MyGameWin.suo" />
-    <None Include="obj\Debug-Mac\monomac_dll_content_processed" />
-    <None Include="obj\Debug-Mac\monomac_version" />
-    <None Include="obj\x86\Debug-Windows\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\x86\Debug-Windows\MyGameWin.csprojAssemblyReference.cache" />
-    <None Include="obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\x86\Debug\BattleSharp.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\x86\Debug\BattleSharp.csprojAssemblyReference.cache" />
-    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Resources\fonts\arial.ttf" />
-    <None Include="Resources\fonts\cour.ttf" />
-    <None Include="Resources\fonts\ffaccess.ttf" />
-    <None Include="Resources\fonts\maven_pro_regular.ttf" />
-    <None Include="Resources\sounds\SwinGameStart.ogg" />
-    <None Include="Resources\SwinGame.icns" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".vs\MyGameMac\xs\UserPrefs.xml" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\MyGameMac.exe" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\animations\startup.txt" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\bundles\FileDialog.txt" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\bundles\splash.txt" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\fdFile.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\fdFolder.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\FileDialog_Active.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\FileDialog_Background.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\FileDialog_Inactive.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\FileDialog_Scroll.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\FileDialog_ScrollSmall.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\Swinburne.jpg" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\images\SwinGameAni.png" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\panels\FileDialog.txt" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\sounds\error.wav" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\sounds\SwinGameStart.wav" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\Resources\SwinGame.ico" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\SwinGame.dll" />
-    <Content Include="bin\Debug-Mac\MyGameMac.app\Contents\MonoBundle\SwinGame.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug-Mac\MyGameMac.exe" />
-    <Content Include="bin\Debug-Mac\MyGameMac.exe.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug-Mac\Resources\animations\startup.txt" />
-    <Content Include="bin\Debug-Mac\Resources\bundles\FileDialog.txt" />
-    <Content Include="bin\Debug-Mac\Resources\bundles\splash.txt" />
-    <Content Include="bin\Debug-Mac\Resources\images\fdFile.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\fdFolder.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\FileDialog_Active.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\FileDialog_Background.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\FileDialog_Inactive.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\FileDialog_Scroll.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\FileDialog_ScrollSmall.png" />
-    <Content Include="bin\Debug-Mac\Resources\images\Swinburne.jpg" />
-    <Content Include="bin\Debug-Mac\Resources\images\SwinGameAni.png" />
-    <Content Include="bin\Debug-Mac\Resources\panels\FileDialog.txt" />
-    <Content Include="bin\Debug-Mac\Resources\sounds\error.wav" />
-    <Content Include="bin\Debug-Mac\Resources\sounds\SwinGameStart.wav" />
-    <Content Include="bin\Debug-Mac\Resources\SwinGame.ico" />
-    <Content Include="bin\Debug-Mac\SwinGame.dll" />
-    <Content Include="bin\Debug-Mac\SwinGame.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\libcurl.dll" />
-    <Content Include="bin\Debug\libeay32.dll" />
-    <Content Include="bin\Debug\libFLAC-8.dll" />
-    <Content Include="bin\Debug\libfreetype-6.dll" />
-    <Content Include="bin\Debug\libidn-11.dll" />
-    <Content Include="bin\Debug\libjpeg-9.dll" />
-    <Content Include="bin\Debug\libmodplug-1.dll" />
-    <Content Include="bin\Debug\libogg-0.dll" />
-    <Content Include="bin\Debug\libpng16-16.dll" />
-    <Content Include="bin\Debug\librtmp.dll" />
-    <Content Include="bin\Debug\libSGSDL2.dll" />
-    <Content Include="bin\Debug\libssh2.dll" />
-    <Content Include="bin\Debug\libtiff-5.dll" />
-    <Content Include="bin\Debug\libvorbis-0.dll" />
-    <Content Include="bin\Debug\libvorbisfile-3.dll" />
-    <Content Include="bin\Debug\libwebp-4.dll" />
-    <Content Include="bin\Debug\MyGame.exe" />
-    <Content Include="bin\Debug\MyGame.pdb" />
-    <Content Include="bin\Debug\MyGame.vshost.exe" />
-    <Content Include="bin\Debug\Resources\animations\startup.txt" />
-    <Content Include="bin\Debug\Resources\bundles\FileDialog.txt" />
-    <Content Include="bin\Debug\Resources\bundles\splash.txt" />
-    <Content Include="bin\Debug\Resources\images\fdFile.png" />
-    <Content Include="bin\Debug\Resources\images\fdFolder.png" />
-    <Content Include="bin\Debug\Resources\images\FileDialog_Active.png" />
-    <Content Include="bin\Debug\Resources\images\FileDialog_Background.png" />
-    <Content Include="bin\Debug\Resources\images\FileDialog_Inactive.png" />
-    <Content Include="bin\Debug\Resources\images\FileDialog_Scroll.png" />
-    <Content Include="bin\Debug\Resources\images\FileDialog_ScrollSmall.png" />
-    <Content Include="bin\Debug\Resources\images\Swinburne.jpg" />
-    <Content Include="bin\Debug\Resources\images\SwinGameAni.png" />
-    <Content Include="bin\Debug\Resources\panels\FileDialog.txt" />
-    <Content Include="bin\Debug\Resources\sounds\error.wav" />
-    <Content Include="bin\Debug\Resources\sounds\SwinGameStart.wav" />
-    <Content Include="bin\Debug\Resources\SwinGame.ico" />
-    <Content Include="bin\Debug\SGSDK.dll" />
-    <Content Include="bin\Debug\smpeg2.dll" />
-    <Content Include="bin\Debug\ssleay32.dll" />
-    <Content Include="bin\Debug\SwinGame.dll" />
-    <Content Include="bin\Debug\zlib1.dll" />
-    <Content Include="lib\SwinGame.dll" />
-    <Content Include="lib\SwinGame.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="lib\win32\libcurl.dll" />
-    <Content Include="lib\win32\libeay32.dll" />
-    <Content Include="lib\win32\libFLAC-8.dll" />
-    <Content Include="lib\win32\libfreetype-6.dll" />
-    <Content Include="lib\win32\libidn-11.dll" />
-    <Content Include="lib\win32\libjpeg-9.dll" />
-    <Content Include="lib\win32\libmodplug-1.dll" />
-    <Content Include="lib\win32\libogg-0.dll" />
-    <Content Include="lib\win32\libpng16-16.dll" />
-    <Content Include="lib\win32\librtmp.dll" />
-    <Content Include="lib\win32\libSGSDL2.dll" />
-    <Content Include="lib\win32\libssh2.dll" />
-    <Content Include="lib\win32\libtiff-5.dll" />
-    <Content Include="lib\win32\libvorbis-0.dll" />
-    <Content Include="lib\win32\libvorbisfile-3.dll" />
-    <Content Include="lib\win32\libwebp-4.dll" />
-    <Content Include="lib\win32\SGSDK.dll" />
-    <Content Include="lib\win32\smpeg2.dll" />
-    <Content Include="lib\win32\ssleay32.dll" />
-    <Content Include="lib\win32\zlib1.dll" />
-    <Content Include="lib\win64\libcurl.dll" />
-    <Content Include="lib\win64\libeay32.dll" />
-    <Content Include="lib\win64\libFLAC-8.dll" />
-    <Content Include="lib\win64\libfreetype-6.dll" />
-    <Content Include="lib\win64\libjpeg-9.dll" />
-    <Content Include="lib\win64\libmikmod-2.dll" />
-    <Content Include="lib\win64\libmodplug-1.dll" />
-    <Content Include="lib\win64\libogg-0.dll" />
-    <Content Include="lib\win64\libpng16-16.dll" />
-    <Content Include="lib\win64\libSGSDL2.dll" />
-    <Content Include="lib\win64\libtiff-5.dll" />
-    <Content Include="lib\win64\libvorbis-0.dll" />
-    <Content Include="lib\win64\libvorbisfile-3.dll" />
-    <Content Include="lib\win64\libwebp-4.dll" />
-    <Content Include="lib\win64\SGSDK.dll" />
-    <Content Include="lib\win64\smpeg2.dll" />
-    <Content Include="lib\win64\ssleay32.dll" />
-    <Content Include="lib\win64\zlib1.dll" />
-    <Content Include="MyGameMac.csproj" />
-    <Content Include="MyGameMac.sln" />
-    <Content Include="MyGameUnx.csproj" />
-    <Content Include="MyGameUnx.sln" />
-    <Content Include="MyGameWin.csproj" />
-    <Content Include="MyGameWin.csproj.user" />
-    <Content Include="MyGameWin.sln" />
-    <Content Include="obj\x86\Debug-Windows\MyGame.exe" />
-    <Content Include="obj\x86\Debug-Windows\MyGame.pdb" />
-    <Content Include="obj\x86\Debug-Windows\MyGameWin.csproj.FileListAbsolute.txt" />
-    <Content Include="Resources\animations\splash.txt" />
-    <Content Include="Resources\animations\startup.txt" />
-    <Content Include="Resources\bundles\FileDialog.txt" />
-    <Content Include="Resources\bundles\splash.txt" />
-    <Content Include="Resources\highscores.txt" />
-    <Content Include="Resources\images\deploy.jpg" />
-    <Content Include="Resources\images\deploy_button_hl.png" />
-    <Content Include="Resources\images\deploy_dir_button_horiz.png" />
-    <Content Include="Resources\images\deploy_dir_button_vert.png" />
-    <Content Include="Resources\images\deploy_play_button.png" />
-    <Content Include="Resources\images\deploy_randomize_button.png" />
-    <Content Include="Resources\images\discover.jpg" />
-    <Content Include="Resources\images\explosion.png" />
-    <Content Include="Resources\images\fdFile.png" />
-    <Content Include="Resources\images\fdFolder.png" />
-    <Content Include="Resources\images\FileDialog_Active.png" />
-    <Content Include="Resources\images\FileDialog_Background.png" />
-    <Content Include="Resources\images\FileDialog_Inactive.png" />
-    <Content Include="Resources\images\FileDialog_Scroll.png" />
-    <Content Include="Resources\images\FileDialog_ScrollSmall.png" />
-    <Content Include="Resources\images\loader_empty.png" />
-    <Content Include="Resources\images\loader_full.png" />
-    <Content Include="Resources\images\main_page.jpg" />
-    <Content Include="Resources\images\ship_deploy_horiz_1.png" />
-    <Content Include="Resources\images\ship_deploy_horiz_2.png" />
-    <Content Include="Resources\images\ship_deploy_horiz_3.png" />
-    <Content Include="Resources\images\ship_deploy_horiz_4.png" />
-    <Content Include="Resources\images\ship_deploy_horiz_5.png" />
-    <Content Include="Resources\images\ship_deploy_vert_1.png" />
-    <Content Include="Resources\images\ship_deploy_vert_2.png" />
-    <Content Include="Resources\images\ship_deploy_vert_3.png" />
-    <Content Include="Resources\images\ship_deploy_vert_4.png" />
-    <Content Include="Resources\images\ship_deploy_vert_5.png" />
-    <Content Include="Resources\images\splash.png" />
-    <Content Include="Resources\images\SplashBack.png" />
-    <Content Include="Resources\images\Swinburne.jpg" />
-    <Content Include="Resources\images\SwinGameAni.jpg" />
-    <Content Include="Resources\images\SwinGameAni.png" />
-    <Content Include="Resources\panels\FileDialog.txt" />
-    <Content Include="Resources\sounds\error.wav" />
-    <Content Include="Resources\sounds\hit.wav" />
-    <Content Include="Resources\sounds\horrordrone.mp3" />
-    <Content Include="Resources\sounds\lose.wav" />
-    <Content Include="Resources\sounds\sink.wav" />
-    <Content Include="Resources\sounds\SwinGameStart.wav" />
-    <Content Include="Resources\sounds\watershot.wav" />
-    <Content Include="Resources\sounds\winner.wav" />
-    <Content Include="Resources\SwinGame.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="obj\x86\Debug-Windows\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\x86\Debug-Windows\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\x86\Debug-Windows\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="src\AIHardPlayer.cs" />
-    <Compile Include="src\AIMediumPlayer.cs" />
-    <Compile Include="src\AIOption.cs" />
-    <Compile Include="src\AIPlayer.cs" />
-    <Compile Include="src\AttackResult.cs" />
-    <Compile Include="src\BattleShipsGame.cs" />
     <Compile Include="src\DeploymentController.cs" />
-    <Compile Include="src\Direction.cs" />
     <Compile Include="src\DiscoveryController.cs" />
     <Compile Include="src\EndingGameController.cs" />
     <Compile Include="src\GameController.cs" />
-    <Compile Include="src\GameLogic.cs" />
     <Compile Include="src\GameMain.cs" />
     <Compile Include="src\GameResources.cs" />
     <Compile Include="src\GameState.cs" />
     <Compile Include="src\HighScoreController.cs" />
-    <Compile Include="src\ISeaGrid.cs" />
     <Compile Include="src\MenuController.cs" />
     <Compile Include="src\Model\AIHardPlayer.cs" />
     <Compile Include="src\Model\AIMediumPlayer.cs" />
@@ -325,23 +63,22 @@
     <Compile Include="src\Model\ShipName.cs" />
     <Compile Include="src\Model\Tile.cs" />
     <Compile Include="src\Model\TileView.cs" />
-    <Compile Include="src\Player.cs" />
-    <Compile Include="src\ResultOfAttack.cs" />
-    <Compile Include="src\SeaGrid.cs" />
-    <Compile Include="src\SeaGridAdapter.cs" />
-    <Compile Include="src\Ship.cs" />
-    <Compile Include="src\ShipName.cs" />
-    <Compile Include="src\Tile.cs" />
-    <Compile Include="src\TileView.cs" />
     <Compile Include="src\UtilityFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include=".vs\BattleSharp\v15\" />
-    <Folder Include="obj\x86\Debug-Windows\TempPE\" />
-    <Folder Include="obj\x86\Debug\TempPE\" />
+    <Reference Include="SwinGame">
+      <HintPath>lib\SwinGame.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
-  <ProjectExtensions>
-    <VisualStudio AllowExistingFolder="true" />
-  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <WinLibs Include="lib\win32\*.dll" />
+  </ItemGroup>
+  <Target Name="CopyLibsToOut">
+    <Copy SourceFiles="@(WinLibs)" DestinationFolder="$(OutDir)" />
+  </Target>
 </Project>

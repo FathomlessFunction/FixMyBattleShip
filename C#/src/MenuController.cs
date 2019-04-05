@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using SwinGameSDK;
+﻿using SwinGameSDK;
 
 namespace Battleships
 {

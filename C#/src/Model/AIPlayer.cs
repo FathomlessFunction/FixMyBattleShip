@@ -1,4 +1,6 @@
-﻿namespace Battleships
+﻿using SwinGameSDK;
+
+namespace Battleships
 {
     public abstract class AIPlayer : Player
     {
@@ -118,7 +120,7 @@
                 result = _game.Shoot(row, column);
                 ProcessShot(row, column, result);
             }
-            while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested)// generate coordinates for shot// take shot
+            while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested())// generate coordinates for shot// take shot
     ;
 
             return result;
@@ -133,7 +135,7 @@
             for (i = 0; i <= 150; i++)
             {
                 // Dont delay if window is closed
-                if (SwinGame.WindowCloseRequested)
+                if (SwinGame.WindowCloseRequested())
                     return;
 
                 SwinGame.Delay(5);

@@ -2,16 +2,9 @@
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
 /// </summary>
-using System.Drawing;
-using System.Data;
-using System.Diagnostics;
-using System.Windows.Forms;
-using Microsoft.VisualBasic;
-using System.Linq;
+
 using System.Collections.Generic;
-using System.Collections;
-using System;
-using System.Xml.Linq;
+using SwinGameSDK;
 
 namespace Battleships
 {
