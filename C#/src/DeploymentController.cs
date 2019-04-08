@@ -47,15 +47,15 @@ namespace Battleships
     /// </remarks>
         public static void HandleDeploymentInput()
         {
-            if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+            if (SwinGame.KeyTyped(KeyCode.EscapeKey))
                 GameController.AddNewState(GameState.ViewingGameMenu);
 
-            if (SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN))
+            if (SwinGame.KeyTyped(KeyCode.UpKey) | SwinGame.KeyTyped(KeyCode.DownKey))
                 _currentDirection = Direction.UpDown;
-            if (SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT))
+            if (SwinGame.KeyTyped(KeyCode.LeftKey) | SwinGame.KeyTyped(KeyCode.RightKey))
                 _currentDirection = Direction.LeftRight;
 
-            if (SwinGame.KeyTyped(KeyCode.VK_R))
+            if (SwinGame.KeyTyped(KeyCode.RKey))
                 GameController.HumanPlayer.RandomizeDeployment();
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
@@ -108,7 +108,7 @@ namespace Battleships
                     }
                     catch (Exception ex)
                     {
-                        Audio.PlaySoundEffect(GameResources.GameSound["Error"]);
+                        Audio.PlaySoundEffect(GameResources.GameSound("Error"));
                         UtilityFunctions.Message = ex.Message;
                     }
                 }
@@ -133,7 +133,7 @@ namespace Battleships
             foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
             {
                 int i;
-                i = Conversion.Int(sn) - 1;
+                i = (int)sn - 1;
                 if (i >= 0)
                 {
                     if (sn == _selectedShip)
@@ -158,7 +158,7 @@ namespace Battleships
             foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
             {
                 int i;
-                i = Conversion.Int(sn) - 1;
+                i = (int)sn - 1;
 
                 if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
                     return sn;
