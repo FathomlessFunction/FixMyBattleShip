@@ -19,7 +19,7 @@ namespace Battleships
     /// </summary>
         public static void DrawEndOfGame()
         {
-            Rectangle toDraw;
+            Rectangle toDraw = new Rectangle();
             string whatShouldIPrint;
 
             UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
@@ -35,7 +35,7 @@ namespace Battleships
             else
                 whatShouldIPrint = "-- WINNER --";
 
-            SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
+            SwinGame.DrawText(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Battleships
     /// </summary>
         public static void HandleEndOfGameInput()
         {
-            if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.VK_RETURN) || SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+            if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.ReturnKey) || SwinGame.KeyTyped(KeyCode.EscapeKey))
             {
                 HighScoreController.ReadHighScore(GameController.HumanPlayer.Score);
                 GameController.EndCurrentState();
