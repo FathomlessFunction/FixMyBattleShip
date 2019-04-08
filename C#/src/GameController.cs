@@ -145,8 +145,8 @@ namespace Battleships
         {
             if (showAnimation)
                 UtilityFunctions.AddExplosion(row, column);
-
-            Audio.PlaySoundEffect(GameResources.GameSound["Hit"]);
+            
+            Audio.PlaySoundEffect(GameResources.GameSound("Hit")); // SV: changed from GameResources.GameSound["Hit"]
 
             UtilityFunctions.DrawAnimationSequence();
         }
@@ -156,7 +156,7 @@ namespace Battleships
             if (showAnimation)
                 UtilityFunctions.AddSplash(row, column);
 
-            Audio.PlaySoundEffect(GameResources.GameSound["Miss"]);
+            Audio.PlaySoundEffect(GameResources.GameSound("Miss")); // SV: changed from GameResources.GameSound["Miss"]
 
             UtilityFunctions.DrawAnimationSequence();
         }
@@ -184,25 +184,25 @@ namespace Battleships
                 case ResultOfAttack.Destroyed:
                     {
                         PlayHitSequence(result.Row, result.Column, isHuman);
-                        Audio.PlaySoundEffect(GameResources.GameSound["Sink"]);
+                        Audio.PlaySoundEffect(GameResources.GameSound("Sink")); // SV: changed [] to () in GameSound()
                         break;
                     }
 
                 case ResultOfAttack.GameOver:
                     {
                         PlayHitSequence(result.Row, result.Column, isHuman);
-                        Audio.PlaySoundEffect(GameResources.GameSound["Sink"]);
+                        Audio.PlaySoundEffect(GameResources.GameSound("Sink")); // SV: () -> [], see previous comments
 
-                        while (Audio.SoundEffectPlaying(GameResources.GameSound["Sink"]))
+                        while (Audio.SoundEffectPlaying(GameResources.GameSound("Sink"))) // SV: () -> []
                         {
                             SwinGame.Delay(10);
                             SwinGame.RefreshScreen();
                         }
 
                         if (HumanPlayer.IsDestroyed)
-                            Audio.PlaySoundEffect(GameResources.GameSound["Lose"]);
+                            Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
                         else
-                            Audio.PlaySoundEffect(GameResources.GameSound["Winner"]);
+                            Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
                         break;
                     }
 
@@ -220,7 +220,7 @@ namespace Battleships
 
                 case ResultOfAttack.ShotAlready:
                     {
-                        Audio.PlaySoundEffect(GameResources.GameSound["Error"]);
+                        Audio.PlaySoundEffect(GameResources.GameSound("Error"));
                         break;
                     }
             }
