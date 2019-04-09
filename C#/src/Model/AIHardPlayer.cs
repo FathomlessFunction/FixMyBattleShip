@@ -136,7 +136,7 @@ namespace Battleships
                     default:
                         {
                             throw new ApplicationException("AI has gone in an invalid state");
-                            break;
+                            // SV: removed obsolete break
                         }
                 }
             }
@@ -203,7 +203,7 @@ namespace Battleships
                 case ResultOfAttack.ShotAlready:
                     {
                         throw new ApplicationException("Error in AI");
-                        break;
+                        // SV: removed obsolete break
                     }
             }
 

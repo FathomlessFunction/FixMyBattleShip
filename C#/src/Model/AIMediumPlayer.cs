@@ -52,8 +52,8 @@ namespace Battleships
 
                     default:
                         {
-                            throw new ApplicationException("AI has gone in an imvalid state");
-                            break;
+                            throw new ApplicationException("AI has gone in an imvalid state"); 
+                            // SV: removed obsolete break
                         }
                 }
             }
