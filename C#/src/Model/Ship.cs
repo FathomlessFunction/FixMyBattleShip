@@ -86,7 +86,10 @@ namespace Battleships
 
         public Ship(ShipName ship)
         {
-            _shipName = ship;
+            //Terrence:
+            //fixed the casting issue here
+            //_shipName = ship;
+            int _shipName = (int)ship;
             _tiles = new List<Tile>();
 
             // gets the ship size from the enumarator
