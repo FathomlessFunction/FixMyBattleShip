@@ -67,6 +67,7 @@ namespace Battleships
         /// <returns>true if location 1 and location 2 are at the same spot</returns>
             public static bool operator ==(Location @this, Location other)
             {
+                // Fix expection trow, when referencing == null, pass @this, null into ReferenceEquals
                 return !ReferenceEquals(@this, null) && !ReferenceEquals(other, null) && @this.Row == other.Row && @this.Column == other.Column;
                 //  return @this != null && other != null && @this.Row == other.Row && @this.Column == other.Column;
             }
@@ -79,7 +80,7 @@ namespace Battleships
         /// <returns>true if location 1 and location 2 are not at the same spot</returns>
             public static bool operator !=(Location @this, Location other)
             {
-
+                // Fix expection trow, when referencing == null, pass @this, null into ReferenceEquals
                 return ReferenceEquals(@this, null) || ReferenceEquals(other, null) || @this.Row != other.Row || @this.Column != other.Column;
                 //  return @this == null || other == null || @this.Row != other.Row || @this.Column != other.Column;
             }
