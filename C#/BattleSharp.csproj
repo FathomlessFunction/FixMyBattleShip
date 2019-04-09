@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
-      <HintPath>..\..\..\..\..\..\..\Desktop\project1\Battleship-master\Battleship-master\CSharpProject\bin\Debug\SwinGame.dll</HintPath>
+      <HintPath>lib\SwinGame.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
