@@ -3,45 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleSharp", "BattleSharp.csproj", "{A9DCAC72-BC77-4C33-BE70-BBFD31D7C798}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleSharp", "BattleSharp.csproj", "{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug-Windows|x86 = Debug-Windows|x86
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9DCAC72-BC77-4C33-BE70-BBFD31D7C798}.Debug-Windows|x86.ActiveCfg = Debug-Windows|x86
-		{A9DCAC72-BC77-4C33-BE70-BBFD31D7C798}.Debug-Windows|x86.Build.0 = Debug-Windows|x86
+		{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}.Debug|x86.ActiveCfg = Debug|x86
+		{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}.Debug|x86.Build.0 = Debug|x86
+		{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}.Release|x86.ActiveCfg = Release|x86
+		{A482CE99-CCB9-462A-8D2A-2A6D4619BC98}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CE58AB71-C76B-4F47-962C-79C45D3205C6}
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.DotNetNamingPolicy = $1
-		$1.DirectoryNamespaceAssociation = None
-		$1.ResourceNamePolicy = FileFormatDefault
-		$0.TextStylePolicy = $2
-		$2.inheritsSet = null
-		$2.scope = text/x-csharp
-		$0.CSharpFormattingPolicy = $3
-		$3.PropertyBraceStyle = NextLine
-		$3.PropertyGetBraceStyle = NextLine
-		$3.PropertySetBraceStyle = NextLine
-		$3.EventBraceStyle = NextLine
-		$3.EventAddBraceStyle = NextLine
-		$3.EventRemoveBraceStyle = NextLine
-		$3.StatementBraceStyle = NextLine
-		$3.ElseNewLinePlacement = NewLine
-		$3.CatchNewLinePlacement = NewLine
-		$3.FinallyNewLinePlacement = NewLine
-		$3.AfterDelegateDeclarationParameterComma = True
-		$3.inheritsSet = Mono
-		$3.inheritsScope = text/x-csharp
-		$3.scope = text/x-csharp
-		StartupItem = MyGameMac.csproj
+		SolutionGuid = {BAB8A59B-66FF-4457-B9CE-1BF5E46F1436}
 	EndGlobalSection
 EndGlobal
