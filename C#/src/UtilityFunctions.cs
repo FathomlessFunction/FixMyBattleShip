@@ -126,18 +126,25 @@ namespace Battleships
                 {
                     colLeft = left + (cellGap + cellWidth) * col;
 
-                    Color fillColor;
+                    //Terrence: 
+                    //Just changed the following line so that fillColour starts as something
+                    //as this will always be overwritten in the case statement below
+                    //Color fillColor;
+                    Color fillColor = null;
                     bool draw;
 
                     draw = true;
 
                     switch (grid.Item)
                     {
-                        case TileView.Ship:
-                            {
-                                draw = false;
-                                break;
-                            }
+                        //Terrence:
+                        //knocked out the first section of the case statement, as this seems 
+                        //to be covered in the last part also? 
+                        //case TileView.Ship:
+                        //    {
+                        //        draw = false;
+                        //        break;
+                        //   }
 
                         case TileView.Miss:
                             {
