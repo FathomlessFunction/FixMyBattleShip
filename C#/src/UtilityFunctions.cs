@@ -135,7 +135,7 @@ namespace Battleships
 
                     draw = true;
 
-                    switch (grid.Item)
+                    switch (grid.Item(row, col))
                     {
                         //Terrence:
                         //knocked out the first section of the case statement, as this seems 
