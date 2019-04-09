@@ -265,31 +265,34 @@ namespace Battleships
             _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
         }
 
+        //Terrence:
+        //due to the wonders of C#, the 'obj' gets declared inside the foreach statement
+        //rather than needing to be declared before it like in VB
         private static void FreeFonts()
         {
-            Font obj;
-            foreach (var obj in _Fonts.Values)
+            //Font obj;
+            foreach (Font obj in _Fonts.Values)
                 SwinGame.FreeFont(obj);
         }
 
         private static void FreeImages()
         {
-            Bitmap obj;
-            foreach (var obj in _Images.Values)
+            //Bitmap obj;
+            foreach (Bitmap obj in _Images.Values)
                 SwinGame.FreeBitmap(obj);
         }
 
         private static void FreeSounds()
         {
-            SoundEffect obj;
-            foreach (var obj in _Sounds.Values)
+            //SoundEffect obj;
+            foreach (SoundEffect obj in _Sounds.Values)
                 Audio.FreeSoundEffect(obj);
         }
 
         private static void FreeMusic()
         {
-            Music obj;
-            foreach (var obj in _Music.Values)
+            //Music obj;
+            foreach (Music obj in _Music.Values)
                 Audio.FreeMusic(obj);
         }
 
