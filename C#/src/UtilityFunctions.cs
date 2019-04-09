@@ -131,7 +131,7 @@ namespace Battleships
 
                     draw = true;
 
-                    switch (grid.Item(row, col))
+                    switch (grid.Item)
                     {
                         case TileView.Ship:
                             {
@@ -318,7 +318,7 @@ namespace Battleships
             foreach (Sprite s in _Animations)
             {
                 SwinGame.UpdateSprite(s);
-                if (s.animationHasEnded)
+                if (s.AnimationHasEnded)
                     ended.Add(s);
             }
 

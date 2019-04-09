@@ -21,7 +21,7 @@ namespace Battleships
     /// </remarks>
         public static void HandleDiscoveryInput()
         {
-            if (SwinGame.KeyTyped(KeyCode.EscapeKey)) // SV: updated KeyCode from KeyCode.VK_ESCAPE
+            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) // SV: updated KeyCode from KeyCode.VK_ESCAPE
                 GameController.AddNewState(GameState.ViewingGameMenu);
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))
@@ -59,7 +59,7 @@ namespace Battleships
             const int HITS_TOP = 206;
             const int SPLASH_TOP = 256;
 
-            if ((SwinGame.KeyDown(KeyCode.LeftShiftKey) | SwinGame.KeyDown(KeyCode.RightShiftKey)) & SwinGame.KeyDown(KeyCode.CKey)) // SV: updated KeyCode from .VK_LSHIFT, .RSHIFT, .VK_C
+            if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c))
                 UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
             else
                 UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, false);

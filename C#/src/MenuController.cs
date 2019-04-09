@@ -93,7 +93,7 @@ namespace Battleships
     /// <returns>false if a clicked missed the buttons. This can be used to check prior menus.</returns>
         private static bool HandleMenuInput(int menu, int level, int xOffset)
         {
-            if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
             {
                 GameController.EndCurrentState();
                 return true;
@@ -181,7 +181,7 @@ namespace Battleships
         private static void DrawButtons(int menu, int level, int xOffset)
         {
             int btnTop;
-            Rectangle toDraw;
+            Rectangle toDraw = new Rectangle();
 
             btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
             int i;
@@ -196,7 +196,7 @@ namespace Battleships
                 toDraw.Y = btnTop + TEXT_OFFSET;
                 toDraw.Width = BUTTON_WIDTH;
                 toDraw.Height = BUTTON_HEIGHT;
-                SwinGame.DrawTextLines(_menuStructure[menu](i), MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
+                SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
 
                 if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset))
                     SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);

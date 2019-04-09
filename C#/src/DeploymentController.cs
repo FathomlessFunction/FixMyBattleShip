@@ -47,15 +47,15 @@ namespace Battleships
     /// </remarks>
         public static void HandleDeploymentInput()
         {
-            if (SwinGame.KeyTyped(KeyCode.EscapeKey))
+            if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
                 GameController.AddNewState(GameState.ViewingGameMenu);
 
-            if (SwinGame.KeyTyped(KeyCode.UpKey) | SwinGame.KeyTyped(KeyCode.DownKey))
+            if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN))
                 _currentDirection = Direction.UpDown;
-            if (SwinGame.KeyTyped(KeyCode.LeftKey) | SwinGame.KeyTyped(KeyCode.RightKey))
+            if (SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT))
                 _currentDirection = Direction.LeftRight;
 
-            if (SwinGame.KeyTyped(KeyCode.RKey))
+            if (SwinGame.KeyTyped(KeyCode.vk_r))
                 GameController.HumanPlayer.RandomizeDeployment();
 
             if (SwinGame.MouseClicked(MouseButton.LeftButton))

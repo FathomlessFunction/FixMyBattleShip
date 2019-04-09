@@ -154,7 +154,7 @@ namespace Battleships
     /// <remarks></remarks>
         public static void HandleHighScoreInput()
         {
-            if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.EscapeKey) || SwinGame.KeyTyped(KeyCode.ReturnKey)) // SV: converted keymappings from VK_ESCAPE, VK_RETURN
+            if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE) || SwinGame.KeyTyped(KeyCode.vk_RETURN)) // SV: converted keymappings from VK_ESCAPE, VK_RETURN
                 GameController.EndCurrentState();
         }
 
