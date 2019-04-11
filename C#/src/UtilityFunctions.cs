@@ -288,11 +288,17 @@ namespace Battleships
             SwinGame.DrawFramerate(675, 585);
         }
 
+        /// <summary>
+        /// Display explosion animation for a hit
+        /// </summary>
         public static void AddExplosion(int row, int col)
         {
             AddAnimation(row, col, "Splash");
         }
 
+        /// <summary>
+        /// Display splash animations for misses
+        /// </summary>
         public static void AddSplash(int row, int col)
         {
             AddAnimation(row, col, "Splash");
@@ -300,6 +306,9 @@ namespace Battleships
 
         private static List<Sprite> _Animations = new List<Sprite>();
 
+        /// <summary>
+        /// Reusable method for displaying animations in cells
+        /// </summary>
         private static void AddAnimation(int row, int col, string image)
         {
             Sprite s;
@@ -319,6 +328,9 @@ namespace Battleships
             _Animations.Add(s);
         }
 
+        /// <summary>
+        /// Remove and free resources for animations that have ended
+        /// </summary>
         public static void UpdateAnimations()
         {
             List<Sprite> ended = new List<Sprite>();
@@ -336,12 +348,18 @@ namespace Battleships
             }
         }
 
+        /// <summary>
+        /// Method to draw all sprite animations in the collection
+        /// </summary>
         public static void DrawAnimations()
         {
             foreach (Sprite s in _Animations)
                 SwinGame.DrawSprite(s);
         }
 
+        /// <summary>
+        /// Update screen for each frame of the sequence and check for ended animations
+        /// </summary>
         public static void DrawAnimationSequence()
         {
             int i;
