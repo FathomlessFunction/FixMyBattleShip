@@ -1,5 +1,6 @@
 ﻿namespace Battleships
 {
+    //Jon: Responsible for tracking the name of each ship
     public enum ShipName
     {
         None = 0,
