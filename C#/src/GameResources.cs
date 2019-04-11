@@ -3,8 +3,15 @@ using SwinGameSDK;
 
 namespace Battleships
 {
+    /// <summary>
+
+    /// The GameResources class is responsible for loading and freeing all game resources and displaying the loading screen.
+
+    /// </summary>
     public static class GameResources
     {
+        // Set of methods to load specific resources needed for the game
+
         private static void LoadFonts()
         {
             NewFont("ArialLarge", "arial.ttf", 80);
@@ -56,11 +63,25 @@ namespace Battleships
             NewMusic("Background", "horrordrone.mp3");
         }
 
+        //Define variables and lists to store resources for loading screen and game
+
+        private static Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
+        private static Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
+        private static Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
+        private static Dictionary<string, Music> _Music = new Dictionary<string, Music>();
+
+        private static Bitmap _Background;
+        private static Bitmap _Animation;
+        private static Bitmap _LoaderFull;
+        private static Bitmap _LoaderEmpty;
+        private static Font _LoadingFont;
+        private static SoundEffect _StartSound;
+
         /// <summary>
-    /// Gets a Font Loaded in the Resources
-    /// </summary>
-    /// <param name="font">Name of Font</param>
-    /// <returns>The Font Loaded with this Name</returns>
+        /// Gets a Font Loaded in the Resources
+        /// </summary>
+        /// <param name="font">Name of Font</param>
+        /// <returns>The Font Loaded with this Name</returns>
 
         public static Font GameFont(string font)
         {
@@ -99,24 +120,10 @@ namespace Battleships
         {
             return _Music[music];
         }
-
-        private static Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
-        private static Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
-        private static Dictionary<string, SoundEffect> _Sounds = new Dictionary<string, SoundEffect>();
-        private static Dictionary<string, Music> _Music = new Dictionary<string, Music>();
-
-        private static Bitmap _Background;
-        private static Bitmap _Animation;
-        private static Bitmap _LoaderFull;
-        private static Bitmap _LoaderEmpty;
-        private static Font _LoadingFont;
-        private static SoundEffect _StartSound;
-
+        
         /// <summary>
-    /// The Resources Class stores all of the Games Media Resources, such as Images, Fonts
-    /// Sounds, Music.
+    /// Load Resources method calls methods to display the loading screen while loading resources.
     /// </summary>
-
         public static void LoadResources()
         {
             int width, height;
@@ -150,6 +157,10 @@ namespace Battleships
             EndLoadingScreen(width, height);
         }
 
+
+        /// <summary>
+        /// Display Loading screen.
+        /// </summary>
         private static void ShowLoadingScreen()
         {
             _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
@@ -167,6 +178,9 @@ namespace Battleships
             PlaySwinGameIntro();
         }
 
+        /// <summary>
+        /// Display swingame intro.
+        /// </summary>
         private static void PlaySwinGameIntro()
         {
             const int ANI_CELL_COUNT = 11;
@@ -186,6 +200,9 @@ namespace Battleships
             SwinGame.Delay(1500);
         }
 
+        /// <summary>
+        /// Resuable method to display any message to the screen.
+        /// </summary>
         private static void ShowMessage(string message, int number)
         {
             const int TX = 310;
@@ -220,6 +237,9 @@ namespace Battleships
             SwinGame.ProcessEvents();
         }
 
+        /// <summary>
+        /// Free resources from Loading Screen.
+        /// </summary>
         private static void EndLoadingScreen(int width, int height)
         {
             SwinGame.ProcessEvents();
@@ -234,6 +254,8 @@ namespace Battleships
             Audio.FreeSoundEffect(_StartSound);
             SwinGame.ChangeScreenSize(width, height);
         }
+
+        //Set of reusable methods to add new resources
 
         private static void NewFont(string fontName, string filename, int size)
         {
@@ -268,6 +290,9 @@ namespace Battleships
         //Terrence:
         //due to the wonders of C#, the 'obj' gets declared inside the foreach statement
         //rather than needing to be declared before it like in VB
+
+        //Set of methods to free all game resources
+
         private static void FreeFonts()
         {
             //Font obj;
