@@ -1,36 +1,29 @@
+using System;
 using SwinGameSDK;
-using static SwinGameSDK.SwinGame; // requires mcs version 4+, 
-// using SwinGameSDK.SwinGame; // requires mcs version 4+, 
 
-namespace Battleships
+namespace MyGame
 {
     public class GameMain
     {
-        public static void Main()
+        public static void Main2()
         {
             //Open the game window
-            OpenGraphicsWindow("Battle Ships", 800, 600);
-            ShowSwinGameSplashScreen();
-
-            // Load Resources
-            GameResources.LoadResources();
- 
-            SwinGame.PlayMusic(GameResources.GameMusic("Background"));
-
+            SwinGame.OpenGraphicsWindow("GameMain", 800, 600);
+            SwinGame.ShowSwinGameSplashScreen();
+            
             //Run the game loop
-            while (false == WindowCloseRequested() | GameController.CurrentState == GameState.Quitting)
+            while(false == SwinGame.WindowCloseRequested())
             {
                 //Fetch the next batch of UI interaction
-                GameController.HandleUserInput();
-
+                SwinGame.ProcessEvents();
+                
+                //Clear the screen and draw the framerate
+                SwinGame.ClearScreen(Color.White);
+                SwinGame.DrawFramerate(0,0);
+                
                 //Draw onto the screen
-                GameController.DrawScreen();
+                SwinGame.RefreshScreen(60);
             }
-
-            SwinGame.StopMusic();
-
-            // Free Resources and Close Audio, to end the program.
-            GameResources.FreeResources();
         }
     }
 }
