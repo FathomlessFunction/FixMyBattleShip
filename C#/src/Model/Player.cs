@@ -181,11 +181,18 @@ public class Player : IEnumerable<Ship>
 	/// <returns>the result of the attack</returns>
 	internal AttackResult Shoot(int row, int col)
 	{
-		_shots += 1;
+        //_shots += 1;
+        // SV: bug fix 26 - if player has already shot a spot, they cannot shoot at it again
+
 		AttackResult result = default(AttackResult);
 		result = EnemyGrid.HitTile(row, col);
 
-		switch (result.Value) {
+        // SV: bug fix 26 - moved _shots+=1 to be conditional + not count ShotAlready
+        if (result.Value != ResultOfAttack.ShotAlready){
+            _shots += 1;
+        }
+
+        switch (result.Value) {
 			case ResultOfAttack.Destroyed:
 			case ResultOfAttack.Hit:
 				_hits += 1;
