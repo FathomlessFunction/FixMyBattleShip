@@ -25,7 +25,6 @@ public class AIEasyPlayer : AIPlayer
 
 	private AIStates _CurrentState = AIStates.Searching;
 
-	private Stack<Location> _Targets = new Stack<Location>();
 	public AIEasyPlayer(BattleShipsGame controller) : base(controller)
 	{
 	}
@@ -52,31 +51,13 @@ public class AIEasyPlayer : AIPlayer
 		//while inside the grid and not a sea tile do the search
 	}
 
-    /*
-     *
-     *
-     *  All Me
-     *
-     *
-     */
-    
-	/// <summary>
-	/// TargetCoords is used when a ship has been hit and it will try and destroy
-	/// this ship
-	/// </summary>
-	/// <param name="row">row generated around the hit tile</param>
-	/// <param name="column">column generated around the hit tile</param>
-	private void TargetCoords(ref int row, ref int column)
-	{
-		Location l = _Targets.Pop();
+    protected override void ProcessShot(int row, int col, AttackResult result)
+    {
+        // do nothing
+    }
 
-		if ((_Targets.Count == 0))
-			_CurrentState = AIStates.Searching;
-		row = l.Row;
-		column = l.Column;
-	}
 
-	/// <summary>
+    /// <summary>
 	/// SearchCoords will randomly generate shots within the grid as long as its not hit that tile already
 	/// </summary>
 	/// <param name="row">the generated row</param>
@@ -87,38 +68,7 @@ public class AIEasyPlayer : AIPlayer
 		column = _Random.Next(0, EnemyGrid.Width);
 	}
 
-	/// <summary>
-	/// ProcessShot will be called uppon when a ship is found.
-	/// It will create a stack with targets it will try to hit. These targets
-	/// will be around the tile that has been hit.
-	/// </summary>
-	/// <param name="row">the row it needs to process</param>
-	/// <param name="col">the column it needs to process</param>
-	/// <param name="result">the result og the last shot (should be hit)</param>
+	
 
-	protected override void ProcessShot(int row, int col, AttackResult result)
-	{
-		if (result.Value == ResultOfAttack.Hit) {
-			_CurrentState = AIStates.TargetingShip;
-			AddTarget(row - 1, col);
-			AddTarget(row, col - 1);
-			AddTarget(row + 1, col);
-			AddTarget(row, col + 1);
-		} else if (result.Value == ResultOfAttack.ShotAlready) {
-			throw new ApplicationException("Error in AI");
-		}
-	}
-
-	/// <summary>
-	/// AddTarget will add the targets it will shoot onto a stack
-	/// </summary>
-	/// <param name="row">the row of the targets location</param>
-	/// <param name="column">the column of the targets location</param>
-	private void AddTarget(int row, int column)
-	{
-
-		if (row >= 0 && column >= 0 && row < EnemyGrid.Height && column < EnemyGrid.Width && EnemyGrid[row, column] == TileView.Sea) {
-			_Targets.Push(new Location(row, column));
-		}
-	}
+	
 }
