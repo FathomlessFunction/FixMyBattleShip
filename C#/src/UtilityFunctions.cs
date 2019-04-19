@@ -250,8 +250,14 @@ static class UtilityFunctions
 				SwinGame.ClearScreen();
 				break;
 		}
-        SwinGame.DrawFramerate (675, 585);
-		//SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
+        //Terrence:
+        //Have changed the way the framerate is drawn to make it much less confusing
+        //as the swingame method gives you too much irrelevant information.
+        //should look basically the same though, leaving old code here for temporary reference. c: 
+        //SwinGame.DrawFramerate (675, 585);
+        //also moved it over a little
+        SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, 725, 585);
+
 	}
 
 	public static void AddExplosion(int row, int col)
