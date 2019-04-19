@@ -1,17 +1,14 @@
 
-using Microsoft.VisualBasic;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-//using System.Data;
-using System.Diagnostics;
 using SwinGameSDK;
 static class GameLogic
 {
 	public static void Main()
 	{
-		//Opens a new Graphics Window
-		SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
+        const int WINDOW_WIDTH = 800;
+        const int WINDOW_HEIGHT = 600;
+
+        //Opens a new Graphics Window
+        SwinGame.OpenGraphicsWindow("Battle Ships", WINDOW_WIDTH, WINDOW_HEIGHT);
 
 		//Load Resources
 		GameResources.LoadResources();
