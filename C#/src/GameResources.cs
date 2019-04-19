@@ -58,8 +58,9 @@ public static class GameResources
 
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "horrordrone.mp3");
-	}
+		NewMusic("Background", "DjBjraMilitaryStorm.wav");
+        //NewMusic("Background", "horrordrone.mp3");
+    }
 
 	/// <summary>
 	/// Gets a Font Loaded in the Resources
