@@ -232,6 +232,9 @@ static class UtilityFunctions
 
 	public static void DrawBackground()
 	{
+        int fpsX = 725;
+        int fpsY = 585;
+
 		switch (GameController.CurrentState) {
 			case GameState.ViewingMainMenu:
 			case GameState.ViewingGameMenu:
@@ -256,7 +259,7 @@ static class UtilityFunctions
         //should look basically the same though, leaving old code here for temporary reference. c: 
         //SwinGame.DrawFramerate (675, 585);
         //also moved it over a little
-        SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, 725, 585);
+        SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, fpsX, fpsY);
 
 	}
 
