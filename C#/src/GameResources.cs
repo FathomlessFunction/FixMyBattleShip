@@ -120,32 +120,37 @@ public static class GameResources
 		int width = 0;
 		int height = 0;
 
+        const int WINDOW_WIDTH = 800;
+        const int WINDOW_HEIGHT = 600;
+
+        const int DELAY = 100;
+
 		width = SwinGame.ScreenWidth();
 		height = SwinGame.ScreenHeight();
 
-		SwinGame.ChangeScreenSize(800, 600);
+		SwinGame.ChangeScreenSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 		ShowLoadingScreen();
 
 		ShowMessage("Loading fonts...", 0);
 		LoadFonts();
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 
 		ShowMessage("Loading images...", 1);
 		LoadImages();
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 
 		ShowMessage("Loading sounds...", 2);
 		LoadSounds();
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 
 		ShowMessage("Loading music...", 3);
 		LoadMusic();
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 		ShowMessage("Game loaded...", 5);
-		SwinGame.Delay(100);
+		SwinGame.Delay(DELAY);
 		//EndLoadingScreen(width, height);
 	}
 
