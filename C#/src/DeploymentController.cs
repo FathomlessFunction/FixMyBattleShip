@@ -120,59 +120,53 @@ static class DeploymentController
 		}
 	}
 
-	/// <summary>
-	/// Draws the deployment screen showing the field and the ships
-	/// that the player can deploy.
-	/// </summary>
-	public static void DrawDeployment()
-	{
-		UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
+    /// <summary>
+    /// Draws the deployment screen showing the field and the ships
+    /// that the player can deploy.
+    /// </summary>
+    public static void DrawDeployment()
+    {
+        UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
 
-		//Draw the Left/Right and Up/Down buttons
-		if (_currentDirection == Direction.LeftRight) {
-			SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
-			//SwinGame.DrawText("U/D", Color.Gray, GameFont("Menu"), UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP)
-			//SwinGame.DrawText("L/R", Color.White, GameFont("Menu"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP)
-		} else {
-			SwinGame.DrawBitmap(GameResources.GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
-			//SwinGame.DrawText("U/D", Color.White, GameFont("Menu"), UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP)
-			//SwinGame.DrawText("L/R", Color.Gray, GameFont("Menu"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP)
-		}
+        //Draw the Left/Right and Up/Down buttons
+        if (_currentDirection == Direction.LeftRight)
+        {
+            SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+        }
+        else
+        {
+            SwinGame.DrawBitmap(GameResources.GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+        }
 
-		//DrawShips
-		foreach (ShipName sn in Enum.GetValues(typeof(ShipName))) {
-			int i = 0;
-			i = ((int)sn) - 1;
-			if (i >= 0) {
-				if (sn == _selectedShip) {
-					SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
-					//    SwinGame.FillRectangle(Color.LightBlue, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
-					//Else
-					//    SwinGame.FillRectangle(Color.Gray, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
-				}
+        //DrawShips
+        foreach (ShipName sn in Enum.GetValues(typeof(ShipName)))
+        {
+            int i = 0;
+            i = ((int)sn) - 1;
+            if (i >= 0)
+            {
+                if (sn == _selectedShip)
+                {
+                    SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
+                }
+            }
+        }
 
-				//SwinGame.DrawRectangle(Color.Black, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
-				//SwinGame.DrawText(sn.ToString(), Color.Black, GameFont("Courier"), SHIPS_LEFT + TEXT_OFFSET, SHIPS_TOP + i * SHIPS_HEIGHT)
+        if (GameController.HumanPlayer.ReadyToDeploy)
+        {
+            SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
+        }
 
-			}
-		}
+        SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
-		if (GameController.HumanPlayer.ReadyToDeploy) {
-			SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
-			//SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT)
-			//SwinGame.DrawText("PLAY", Color.Black, GameFont("Courier"), PLAY_BUTTON_LEFT + TEXT_OFFSET, PLAY_BUTTON_TOP)
-		}
+        UtilityFunctions.DrawMessage();
+    }
 
-		SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
-
-		UtilityFunctions.DrawMessage();
-	}
-
-	/// <summary>
-	/// Gets the ship that the mouse is currently over in the selection panel.
-	/// </summary>
-	/// <returns>The ship selected or none</returns>
-	private static ShipName GetShipMouseIsOver()
+    /// <summary>
+    /// Gets the ship that the mouse is currently over in the selection panel.
+    /// </summary>
+    /// <returns>The ship selected or none</returns>
+    private static ShipName GetShipMouseIsOver()
 	{
 		foreach (ShipName sn in Enum.GetValues(typeof(ShipName))) {
 			int i = 0;
