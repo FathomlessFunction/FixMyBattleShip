@@ -1,10 +1,3 @@
-
-using Microsoft.VisualBasic;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-//using System.Data;
-using System.Diagnostics;
 using SwinGameSDK;
 
 /// <summary>
@@ -26,18 +19,18 @@ static class EndingGameController
 		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		Rectangle toDraw = new Rectangle ();
+		Rectangle toDraw = new Rectangle();
 		toDraw.X = 0;
 		toDraw.Y = 250;
-		toDraw.Width = SwinGame.ScreenWidth ();
-		toDraw.Height = SwinGame.ScreenHeight ();
-        String whatShouldIPrint = "I have long variable names";
+		toDraw.Width = SwinGame.ScreenWidth();
+		toDraw.Height = SwinGame.ScreenHeight();
+        string gameResult;
 		if (GameController.HumanPlayer.IsDestroyed) {
-            whatShouldIPrint = "YOU LOSE!";
+            gameResult = "YOU LOSE!";
         } else {
-			whatShouldIPrint = "-- WINNER --";
+            gameResult = "-- WINNER --";
 		}
-        SwinGame.DrawText (whatShouldIPrint, Color.White, Color.Transparent,GameResources.GameFont ("ArialLarge"),FontAlignment.AlignCenter, toDraw);
+        SwinGame.DrawText(gameResult, Color.White, Color.Transparent,GameResources.GameFont ("ArialLarge"),FontAlignment.AlignCenter, toDraw);
 	}
 
 	/// <summary>

@@ -232,6 +232,9 @@ static class UtilityFunctions
 
 	public static void DrawBackground()
 	{
+        int fpsX = 725;
+        int fpsY = 585;
+
 		switch (GameController.CurrentState) {
 			case GameState.ViewingMainMenu:
 			case GameState.ViewingGameMenu:
@@ -250,8 +253,14 @@ static class UtilityFunctions
 				SwinGame.ClearScreen();
 				break;
 		}
-        SwinGame.DrawFramerate (675, 585);
-		//SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
+        //Terrence:
+        //Have changed the way the framerate is drawn to make it much less confusing
+        //as the swingame method gives you too much irrelevant information.
+        //should look basically the same though, leaving old code here for temporary reference. c: 
+        //SwinGame.DrawFramerate (675, 585);
+        //also moved it over a little
+        SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, fpsX, fpsY);
+
 	}
 
 	public static void AddExplosion(int row, int col)
