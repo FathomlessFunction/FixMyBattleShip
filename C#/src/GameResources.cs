@@ -52,7 +52,6 @@ public static class GameResources
 	private static void LoadMusic()
 	{
 		NewMusic("Background", "DjBjraMilitaryStorm.wav");
-        //NewMusic("Background", "horrordrone.mp3");
     }
 
 	/// <summary>
@@ -152,7 +151,10 @@ public static class GameResources
 		SwinGame.Delay(DELAY);
 		ShowMessage("Game loaded...", 5);
 		SwinGame.Delay(DELAY);
-		//EndLoadingScreen(width, height);
+
+        // SV: uncommented this, and commented out the line 
+        // in the method that was causing the memory access violation.
+        EndLoadingScreen(width, height);
 	}
 
     /// <summary>
@@ -182,7 +184,7 @@ public static class GameResources
     /// Plays the swin game intro.
     /// </summary>
     /// <remarks>
-    /// Isuru: TODO: remove the old swingame intro 
+    /// Isuru: TODO: remove the old swingame intro - SV made this into a ticket. Leaving commented out code for that ticket.
     /// </remarks>
 	private static void PlaySwinGameIntro()
 	{
@@ -224,7 +226,7 @@ public static class GameResources
 		fullW = 260 * number / STEPS;
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
 
-        // TODO: Do this the right way
+        // TODO: Do this the right way - SV: made this into a ticket. Thus leaving commented out code here for that ticket.
         SwinGame.DrawCell (_LoaderFull, 0, BG_X, BG_Y);
 		//Draw Bitmap Part   (src, srcX, srcY, srcW, srcH, x, y)
 		//SwinGame.DrawBitmapPart(_LoaderFull, 0, 0, fullW, 66, BG_X, BG_Y);
@@ -253,7 +255,8 @@ public static class GameResources
 		SwinGame.FreeBitmap(_Animation);
 		SwinGame.FreeBitmap(_LoaderEmpty);
 		SwinGame.FreeBitmap(_LoaderFull);
-		Audio.FreeSoundEffect(_StartSound);
+        // SV: commented out as this causes a memory access violation.
+		//Audio.FreeSoundEffect(_StartSound);
 		SwinGame.ChangeScreenSize(width, height);
 	}
 
@@ -279,7 +282,6 @@ public static class GameResources
 	private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
 	{
         Bitmap bitmap = SwinGame.LoadBitmap (SwinGame.PathToResource (fileName,ResourceKind.BitmapResource));
-		//Bitmap bitmap = SwinGame.LoadBitmap (SwinGame.PathToResource (fileName, ResourceKind.BitmapResource), true, transColor);
 		_Images.Add(imageName, bitmap);
 	}
 
