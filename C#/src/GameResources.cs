@@ -132,24 +132,24 @@ public static class GameResources
 
 		ShowLoadingScreen();
 
-		ShowMessage("Loading fonts...", 0);
+		ShowMessage("Loading fonts...", 0, false);
 		LoadFonts();
 		SwinGame.Delay(DELAY);
 
-		ShowMessage("Loading images...", 1);
+		ShowMessage("Loading images...", 1, false);
 		LoadImages();
 		SwinGame.Delay(DELAY);
 
-		ShowMessage("Loading sounds...", 2);
+		ShowMessage("Loading sounds...", 2, false);
 		LoadSounds();
 		SwinGame.Delay(DELAY);
 
-		ShowMessage("Loading music...", 3);
+		ShowMessage("Loading music...", 3, false);
 		LoadMusic();
 		SwinGame.Delay(DELAY);
 
 		SwinGame.Delay(DELAY);
-		ShowMessage("Game loaded...", 5);
+		ShowMessage("Game loaded...", 5, true);
 		SwinGame.Delay(DELAY);
 
         // SV: uncommented this, and commented out the line 
@@ -211,7 +211,7 @@ public static class GameResources
 
 	}
 
-	private static void ShowMessage(string message, int number)
+	private static void ShowMessage(string message, int number, bool full)
 	{
 		const int TX = 310;
 		const int TY = 493;
@@ -226,8 +226,11 @@ public static class GameResources
 		fullW = 260 * number / STEPS;
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
 
-        // TODO: Do this the right way - SV: made this into a ticket. Thus leaving commented out code here for that ticket.
-        SwinGame.DrawCell (_LoaderFull, 0, BG_X, BG_Y);
+        //Cant Draw Bitmap Part on this API
+        if (full)
+        {
+            SwinGame.DrawCell(_LoaderFull, 0, BG_X, BG_Y);
+        }
 		//Draw Bitmap Part   (src, srcX, srcY, srcW, srcH, x, y)
 		//SwinGame.DrawBitmapPart(_LoaderFull, 0, 0, fullW, 66, BG_X, BG_Y);
 
