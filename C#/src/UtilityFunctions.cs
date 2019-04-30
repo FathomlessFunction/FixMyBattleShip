@@ -116,8 +116,6 @@ static class UtilityFunctions
 	private static void DrawCustomField(ISeaGrid grid, Player thePlayer, bool small, bool showShips, int left, int top, int width, int height, int cellWidth, int cellHeight,
 	int cellGap)
 	{
-		//SwinGame.FillRectangle(Color.Blue, left, top, width, height)
-
 		int rowTop = 0;
 		int colLeft = 0;
 
