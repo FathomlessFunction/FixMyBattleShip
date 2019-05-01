@@ -132,10 +132,6 @@ static class UtilityFunctions
 				draw = true;
 
 				switch (grid[row, col]) {
-					//case TileView.Ship:
-					//	draw = false;
-					//	break;
-					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
 					case TileView.Miss:
 						if (small)
 							fillColor = SMALL_MISS;
@@ -254,9 +250,6 @@ static class UtilityFunctions
         //Terrence:
         //Have changed the way the framerate is drawn to make it much less confusing
         //as the swingame method gives you too much irrelevant information.
-        //should look basically the same though, leaving old code here for temporary reference. c: 
-        //SwinGame.DrawFramerate (675, 585);
-        //also moved it over a little
         SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, fpsX, fpsY);
 
 	}
