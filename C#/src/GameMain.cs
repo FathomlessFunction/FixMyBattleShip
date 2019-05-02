@@ -9,7 +9,7 @@ namespace MyGame
         {
             //Open the game window
             SwinGame.OpenGraphicsWindow("GameMain", 800, 600);
-            SwinGame.ShowSwinGameSplashScreen();
+//            SwinGame.ShowSwinGameSplashScreen();
             
             //Run the game loop
             while(false == SwinGame.WindowCloseRequested())
