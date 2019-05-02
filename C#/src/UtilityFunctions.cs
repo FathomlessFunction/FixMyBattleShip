@@ -116,8 +116,6 @@ static class UtilityFunctions
 	private static void DrawCustomField(ISeaGrid grid, Player thePlayer, bool small, bool showShips, int left, int top, int width, int height, int cellWidth, int cellHeight,
 	int cellGap)
 	{
-		//SwinGame.FillRectangle(Color.Blue, left, top, width, height)
-
 		int rowTop = 0;
 		int colLeft = 0;
 
@@ -134,10 +132,6 @@ static class UtilityFunctions
 				draw = true;
 
 				switch (grid[row, col]) {
-					//case TileView.Ship:
-					//	draw = false;
-					//	break;
-					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
 					case TileView.Miss:
 						if (small)
 							fillColor = SMALL_MISS;
@@ -256,9 +250,6 @@ static class UtilityFunctions
         //Terrence:
         //Have changed the way the framerate is drawn to make it much less confusing
         //as the swingame method gives you too much irrelevant information.
-        //should look basically the same though, leaving old code here for temporary reference. c: 
-        //SwinGame.DrawFramerate (675, 585);
-        //also moved it over a little
         SwinGame.DrawText("FPS:" + SwinGame.GetFramerate().ToString(), Color.Green, fpsX, fpsY);
 
 	}
