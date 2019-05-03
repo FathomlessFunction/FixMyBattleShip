@@ -273,7 +273,29 @@ public static class GameController
 		//Read incoming input events
 		SwinGame.ProcessEvents();
 
-		switch (CurrentState) {
+        if (SwinGame.KeyTyped(KeyCode.PageUpKey))
+        {
+            float max = 1.0F;
+            float increment = 0.1F;
+
+            if (Audio.MusicVolume() != max)
+            {
+                Audio.SetMusicVolume(Audio.MusicVolume() + increment);
+            }
+        }
+
+        if (SwinGame.KeyTyped(KeyCode.PageDownKey))
+        {
+            float min = 0.0F;
+            float decrement = 0.1F;
+
+            if (Audio.MusicVolume() != min)
+            {
+                Audio.SetMusicVolume(Audio.MusicVolume() - decrement);
+            }
+        }
+
+        switch (CurrentState) {
 			case GameState.ViewingMainMenu:
 				MenuController.HandleMainMenuInput();
 				break;
